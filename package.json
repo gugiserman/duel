@@ -1,0 +1,21 @@
+{
+  "name": "duel",
+  "version": "0.1.0",
+  "description": "1v1 me noob",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "nodemon server/index.js"
+  },
+  "author": "Gustavo Giserman",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "http": "^0.0.0",
+    "socket.io": "^2.1.0"
+  }
+}
