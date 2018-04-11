@@ -10,7 +10,7 @@ const io = socketIO(server)
 const clientDir = __dirname.replace('/server', '/client')
 const queue = []
 
-server.listen(9000)
+server.listen(process.env.SERVER_PORT)
 app.use(cors())
 app.use(express.static(`${clientDir}/build`))
 

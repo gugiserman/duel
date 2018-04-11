@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "npm test",
-    "start": "nodemon server/index.js"
+    "start": "SERVER_PORT=9000 nodemon server/index.js"
   },
   "author": "Gustavo Giserman",
   "license": "ISC",
