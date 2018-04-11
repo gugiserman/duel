@@ -10,9 +10,13 @@ const io = socketIO(server)
 const clientDir = __dirname.replace('/server', '/client')
 const queue = []
 
-server.listen(process.env.SERVER_PORT)
+server.listen(process.env.PORT || 9000)
 app.use(cors())
 app.use(express.static(`${clientDir}/build`))
+
+app.get('*', (req, res) => {
+  res.sendFile(`${clientDir}/build/index.html`)
+})
 
 io.on('connection', newPlayer => {
   if (!queue.length) {

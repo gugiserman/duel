@@ -30,7 +30,8 @@ class App extends Component {
 
     return (
       <div style={{ textAlign: 'center', width: '100%' }}>
-        <h1>{inQueue ? 'in queue...' : isPlaying ? 'match found!' : 'welcome'}</h1>
+        <h1>Duel</h1>
+        <h3>{inQueue ? 'in queue...' : isPlaying ? 'match found!' : 'welcome'}</h3>
       </div>
     )
   }
