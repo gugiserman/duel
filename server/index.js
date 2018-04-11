@@ -6,8 +6,9 @@ const socketIO = require('socket.io')
 const app = express()
 const server = http.Server(app)
 const io = socketIO(server)
-
 const clientDir = __dirname.replace('/server', '/client')
+
+const allPlayers = []
 const queue = []
 
 server.listen(process.env.PORT || 9000)
@@ -19,6 +20,8 @@ app.get('*', (req, res) => {
 })
 
 io.on('connection', newPlayer => {
+  allPlayers.push(newPlayer)
+
   if (!queue.length) {
     newPlayer.inQueue = true
     newPlayer.positionInQueue = queue.length
@@ -41,5 +44,8 @@ io.on('connection', newPlayer => {
       newPlayer.inQueue = false
       newPlayer.positionInQueue = -1
     }
+
+    const index = allPlayers.indexOf(newPlayer)
+    allPlayers.splice(index, 1)
   })
 })
